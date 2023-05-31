@@ -11,6 +11,7 @@ function Detail() {
   const accessToken = localStorage.getItem('token');
   const [detailData, setDetailData] = useState([]);
   const [size, setSize] = useState(0);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const params = useParams();
   useEffect(() => {
@@ -24,45 +25,11 @@ function Detail() {
       .then(response => response.json())
       .then(data => setDetailData(data));
   }, []);
-
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  
   const switchModal = () => {
     setIsOpenModal(prev => !prev);
   };
-
-  // const buyAccess = () => {
-  //   fetch('http://10.58.52.162:3000/orders', {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-Type': 'application/json;charset=utf-8',
-  //       Authorization:
-  //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxOSwiaWF0IjoxNjY5MTgxMzQ1LCJleHAiOjE2NzE3NzMzNDUsImlzcyI6ImFkbWluIiwic3ViIjoiYWNjZXNzVG9rZW4ifQ.dvHAlqCKLEpOa1sF_u-V0xp1qnswG_NeocDzJ31ioKo',
-  //     },
-  //     body: JSON.stringify({
-  //       totalPrice: '',
-  //       orderItems: [
-  //         {
-  //           productOptionId: '',
-  //           quantity: '',
-  //         },
-  //       ],
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => console.log(detailData));
-  // };
-
-  // const detailImgAccess = () => {
-  //   fetch('http://10.58.52.132:3000/products/1', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => console.log(data));
-  // };
-
+  
   if (!detailData.productInfo) return null;
 
   return (
