@@ -4,8 +4,6 @@ import './Detail.scss';
 import DetailModal from './DetailModal';
 import Right from './Right';
 import Left from './Left';
-import Review from './Review';
-import SIZE_LIST from './SIZE_LIST';
 
 function Detail() {
   const accessToken = localStorage.getItem('token');
